@@ -45,7 +45,6 @@ export default function Header() {
           ӘДІСКЕР БӨЛІМІ
         </Link>
 
-        {/* ✅ Батырманы сілтемеге айналдырамыз */}
         <Link
           href="/login"
           className="bg-[#F5D74B] px-6 py-2 rounded-full font-bold text-[#4b4b4b] hover:bg-[#f0cf3f] transition"
