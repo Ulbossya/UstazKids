@@ -7,7 +7,6 @@ export default function Header() {
     <header className="w-full bg-white shadow-sm py-4 px-6 flex justify-between items-center">
       <div className="flex items-center gap-3">
         <img src="/logo.png" alt="Logo" className="h-8" />
-        <h1 className="text-2xl font-bold text-purple-600">Ukids</h1>
       </div>
 
       <nav className="flex items-center gap-8 font-medium text-sm">
