@@ -1,20 +1,52 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const linkStyle =
+    "text-[15px] font-semibold text-[#674DA2] hover:text-purple-600 transition";
+
+  // ✅ underline жоқ, тек түс өзгереді
+  const activeStyle = "text-purple-700";
+
   return (
-    <header className="w-full bg-white shadow-sm py-4 px-6 flex justify-between items-center">
+    <header className="w-full bg-white py-4 px-10 flex justify-between items-center shadow-sm">
       <div className="flex items-center gap-3">
         <img src="/logo.png" alt="Logo" className="h-8" />
       </div>
 
-      <nav className="flex items-center gap-8 font-medium text-sm">
-        <Link href="/">БАСТЫ БЕТ</Link>
-        <Link href="/tarbieshi">ТӘРБИЕШІ БӨЛІМІ</Link>
-        <Link href="/adisker">ӘДІСКЕР БӨЛІМІ</Link>
+      <nav className="flex items-center gap-10">
+        <Link
+          href="/"
+          className={`${linkStyle} ${
+            pathname === "/" ? activeStyle : ""
+          }`}
+        >
+          БАСТЫ БЕТ
+        </Link>
 
-        <button className="bg-yellow-400 px-5 py-2 rounded-full font-bold shadow">
+        <Link
+          href="/tarbieshi"
+          className={`${linkStyle} ${
+            pathname.startsWith("/tarbieshi") ? activeStyle : ""
+          }`}
+        >
+          ТӘРБИЕШІ БӨЛІМІ
+        </Link>
+
+        <Link
+          href="/adisker"
+          className={`${linkStyle} ${
+            pathname.startsWith("/adisker") ? activeStyle : ""
+          }`}
+        >
+          ӘДІСКЕР БӨЛІМІ
+        </Link>
+
+        <button className="bg-[#F5D74B] px-6 py-2 rounded-full font-bold text-[#4b4b4b] hover:bg-[#f0cf3f] transition">
           КІРУ
         </button>
       </nav>
