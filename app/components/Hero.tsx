@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative w-full h-[80vh] flex items-center overflow-hidden -mb-px">
       {/* фон-фото */}
       <img
-        src="/bala.png"
+        src="/images/bala.png"
         className="absolute inset-0 w-full h-full object-cover brightness-75"
         alt=""
       />

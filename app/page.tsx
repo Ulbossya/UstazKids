@@ -5,7 +5,6 @@ import WhyUstaz from "./components/WhyUstaz";
 export default function Home() {
   return (
     <main>
-      <Header />
       <Hero />
       <WhyUstaz />
     </main>
