@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="relative w-full h-[80vh] flex items-center">
       <img
-        src="/child-photo.jpg"
+        src="/bala.png"
         className="absolute inset-0 w-full h-full object-cover brightness-75"
       />
 
