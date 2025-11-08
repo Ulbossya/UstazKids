@@ -9,7 +9,6 @@ export default function Header() {
   const linkStyle =
     "text-[15px] font-semibold text-[#674DA2] hover:text-purple-600 transition";
 
-  // ✅ underline жоқ, тек түс өзгереді
   const activeStyle = "text-purple-700";
 
   return (
@@ -46,9 +45,13 @@ export default function Header() {
           ӘДІСКЕР БӨЛІМІ
         </Link>
 
-        <button className="bg-[#F5D74B] px-6 py-2 rounded-full font-bold text-[#4b4b4b] hover:bg-[#f0cf3f] transition">
+        {/* ✅ Батырманы сілтемеге айналдырамыз */}
+        <Link
+          href="/login"
+          className="bg-[#F5D74B] px-6 py-2 rounded-full font-bold text-[#4b4b4b] hover:bg-[#f0cf3f] transition"
+        >
           КІРУ
-        </button>
+        </Link>
       </nav>
     </header>
   );
