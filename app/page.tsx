@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Team from "./components/Team";
 import WhyUstaz from "./components/WhyUstaz";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main>
       <Hero />
       <WhyUstaz />
+      <Team />
     </main>
   );
 }
