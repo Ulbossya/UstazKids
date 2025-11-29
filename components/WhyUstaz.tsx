@@ -1,42 +1,41 @@
 "use client";
 
-import Image from "next/image";
+import { AcademicCapIcon, LightBulbIcon, BookOpenIcon, HandRaisedIcon, UsersIcon, ChartBarIcon } from '@heroicons/react/24/solid';
 
 type Feature = {
-  icon: string; // /public ішіндегі сурет жолы
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
   title: string;
   text: string;
 };
 
 const FEATURES: Feature[] = [
   {
-    icon: "/images/first.png",
+    icon: AcademicCapIcon,
     title: "Уақытты үнемдейтін жоспарлар",
     text: "Дайын сабақ жоспарлары мен материалдар бір жерге жиналған.",
   },
   {
-    icon: "/images/first.png",
+    icon: BookOpenIcon,
     title: "Артық іздеусіз контент",
     text: "Қажет материалға тез қол жеткізетін ыңғайлы құрылым.",
   },
   {
-    icon: "/images/first.png",
+    icon: LightBulbIcon,
     title: "Шығармашылық идеялар",
     text: "Техникалық қиындықсыз іске асыратын бірден қолданылатын идеялар.",
   },
   {
-
-    icon: "/images/first.png",
+    icon: HandRaisedIcon,
     title: "Кәсіби даму",
     text: "Мотивация мен шеберлікті арттыратын мастер-класстар.",
   },
   {
-    icon: "/images/first.png",
+    icon: ChartBarIcon,
     title: "Еңбекті бағалау",
     text: "Жетістіктерді атап өтетін марапат пен қолдау жүйесі.",
   },
   {
-    icon: "/images/first.png",
+    icon: UsersIcon,
     title: "Ата-анамен байланыс",
     text: "Тиімді кері байланыс пен бірлескен жұмыс арналары.",
   },
@@ -45,15 +44,8 @@ const FEATURES: Feature[] = [
 export default function WhyUstaz() {
   return (
     <section className="relative w-full -mt-px overflow-hidden">
-      {/* Фон */} 
+      {/* Фон */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/why-bg.png"
-          alt="Ustaz Kids background"
-          fill
-          priority
-          className="object-cover"
-        />
         <div className="absolute inset-0 bg-[#6C4AB6]/92" />
       </div>
 
@@ -68,23 +60,21 @@ export default function WhyUstaz() {
 
         {/* Сетка артықшылықтар */}
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((f, i) => (
-            <div
-              key={i}
-              className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-8 flex flex-col items-center text-center hover:bg-white/15 transition"
-            >
-              <div className="relative w-20 h-20 mb-4">
-                <Image
-                  src={f.icon}
-                  alt={f.title}
-                  fill
-                  className="object-contain"
-                />
+          {FEATURES.map((f, i) => {
+            const Icon = f.icon;
+            return (
+              <div
+                key={i}
+                className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-8 flex flex-col items-center text-center hover:bg-white/15 transition"
+              >
+                <div className="w-20 h-20 mb-4 flex items-center justify-center bg-[#FFD700] rounded-full hover:scale-110 transition-transform">
+                  <Icon className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold leading-tight mb-2">{f.title}</h3>
+                <p className="text-sm text-white/85">{f.text}</p>
               </div>
-              <h3 className="text-lg font-semibold leading-tight mb-2">{f.title}</h3>
-              <p className="text-sm text-white/85">{f.text}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

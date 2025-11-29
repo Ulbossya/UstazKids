@@ -1,11 +1,25 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect } from "react";
+import { CalendarIcon, BookOpenIcon, HandRaisedIcon, UsersIcon } from '@heroicons/react/24/solid';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function UstazKidsErekshelikteri() {
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
   const features = [
-    { img: "/images/calendar.png", link: "/page1" },
-    { img: "/images/calendar.png", link: "/page2" },
-    { img: "/images/calendar.png", link: "/page3" },
-    { img: "/images/calendar.png", link: "/page4" },
+    { icon: CalendarIcon,},
+    { icon: BookOpenIcon,},
+    { icon: HandRaisedIcon,},
+    { icon: UsersIcon, },
+  ];
+
+  const carouselImages = [
+    "/images/image.png",
+    "/images/image.png",
+    "/images/image.png",
   ];
 
   return (
@@ -34,38 +48,44 @@ export default function UstazKidsErekshelikteri() {
           <p className="text-[#4B4B4B]">Әр ай – жеке бағыт, жүйелі тәрбие.</p>
         </div>
 
-        <div className="relative w-full h-80 md:h-96 rounded-xl overflow-hidden shadow-md">
-          <Image
-            src="/images/image.png"
-            fill
-            className="object-cover"
-            priority
-            alt={""}
-          />
+        {/* Bootstrap Carousel */}
+        <div id="ustazCarousel" className="carousel slide rounded-xl shadow-md" data-bs-ride="carousel">
+          <div className="carousel-inner">
+            {carouselImages.map((src, i) => (
+              <div key={i} className={`carousel-item ${i === 0 ? "active" : ""}`}>
+                <img
+                  src={src}
+                  className="d-block w-100 rounded-xl"
+                  alt={`Carousel ${i + 1}`}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Controls */}
+          <button className="carousel-control-prev" type="button" data-bs-target="#ustazCarousel" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#ustazCarousel" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
 
       {/* Иконки / ерекшеліктер */}
-      <div className="grid grid-cols-4 mt-12 border-t border-gray-200">
-        {features.map((feature, i) => (
-          <div
-            key={i}
-            className={`flex flex-col items-center justify-center py-4 ${
-              i !== features.length - 1 ? "border-r border-gray-300" : ""
-            }`}
-          >
-            <a href={feature.link}>
-              <div className="relative w-20 h-20 mb-2">
-                <Image
-                  src={feature.img}
-                  fill
-                  className="object-contain"
-                  alt={""}
-                />
+      <div className="flex justify-around mt-12 border-t border-gray-200 pt-6">
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          return (
+            <div key={i} className="flex flex-col items-center">
+              <div className="w-16 h-16 mb-2 flex items-center justify-center bg-[#674DA2] rounded-full">
+                <Icon className="w-8 h-8 text-white" />
               </div>
-            </a>
-          </div>
-        ))}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

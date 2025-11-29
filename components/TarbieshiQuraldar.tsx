@@ -1,39 +1,17 @@
-import Image from "next/image";
+"use client";
+
+import { AcademicCapIcon, BookOpenIcon, ClipboardDocumentListIcon, UsersIcon, ChartBarIcon, LightBulbIcon, UserGroupIcon, CheckCircleIcon } from '@heroicons/react/24/solid';
 
 export default function TarbieshiQuraldar() {
   const tools = [
-    {
-      name: "Жылдық жұмыс жоспарлары",
-      icon: "/images/third.png",
-    },
-    {
-      name: "Әдістемелік нұсқаулар",
-      icon: "/images/third.png",
-    },
-    {
-      name: "Тақырыптық жоспарлар",
-      icon: "/images/third.png",
-    },
-    {
-      name: "Семинарлық жоспарлар",
-      icon: "/images/third.png",
-    },
-    {
-      name: "Мониторинг және талдау құжаттары",
-      icon: "/images/third.png",
-    },
-    {
-      name: "Педагогтардың кәсіби өсуін жоспарлау құжаттары",
-      icon: "/images/third.png",
-    },
-    {
-      name: "Ата-анамен жұмыс жоспарлары",
-      icon: "/images/third.png",
-    },
-    {
-      name: "Бақылау парақшалары",
-      icon: "/images/third.png",
-    },
+    { icon: AcademicCapIcon, name: "Жылдық жұмыс жоспарлары" },
+    { icon: BookOpenIcon, name: "Әдістемелік нұсқаулар" },
+    { icon: ClipboardDocumentListIcon, name: "Тақырыптық жоспарлар" },
+    { icon: UsersIcon, name: "Семинарлық жоспарлар" },
+    { icon: ChartBarIcon, name: "Мониторинг және талдау құжаттары" },
+    { icon: LightBulbIcon, name: "Педагогтардың кәсіби өсуін жоспарлау құжаттары" },
+    { icon: UserGroupIcon, name: "Ата-анамен жұмыс жоспарлары" },
+    { icon: CheckCircleIcon, name: "Бақылау парақшалары" },
   ];
 
   return (
@@ -51,24 +29,22 @@ export default function TarbieshiQuraldar() {
 
       {/* Құралдар тізімі */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {tools.map((tool, i) => (
-          <div
-            key={i}
-            className="p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition text-center border border-gray-100 flex flex-col items-center"
-          >
-            <div className="relative w-24 h-24 mb-4"> {/* Иконкаларды үлкенірек қылдым */}
-              <Image
-                src={tool.icon}
-                alt={tool.name}
-                fill
-                className="object-contain"
-              />
+        {tools.map((tool, i) => {
+          const Icon = tool.icon;
+          return (
+            <div
+              key={i}
+              className="p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition text-center border border-gray-100 flex flex-col items-center"
+            >
+              <div className="w-20 h-20 mb-4 flex items-center justify-center bg-[#674DA2] rounded-full">
+                <Icon className="w-10 h-10 text-white" />
+              </div>
+              <p className="text-sm md:text-base font-medium text-[#4B4B4B]">
+                {tool.name}
+              </p>
             </div>
-            <p className="text-sm md:text-base font-medium text-[#4B4B4B]">
-              {tool.name}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

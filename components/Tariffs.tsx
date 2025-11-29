@@ -1,76 +1,37 @@
-// app/components/Tariffs.tsx
 "use client";
 
-const privateItems = [
-  "Тоғыз айға перспективалық жоспар",
-  "Тоғыз айға циклограмма",
-  "Үйә кестесі",
-  "Күн тәртібі",
-  "Жаздық сауықтыру жоспары",
-];
-
-const docItems = [
-  "Перспективалық жоспар",
-  "Циклограмма",
-  "Баланың даму динамикасы",
-  "Үйә кестесі Күн тәртібі",
-  "Ата-аналармен байланыс құралдары",
-  "Ертегілер (әр жас ерекшелігі бойынша)",
-  "Құндылық іс-шаралары (Ата-аналармен, балалармен)",
-  "Педагогтердің жеке дамуына арналған кітаптар тізімі",
-];
-
-const videoItems = [
-  "Топтың жабдықталуы фотолар",
-  "Еркін ойын қызғаны видеолар",
-  "Ойындар видеолар",
-  "Ерте даму жаттығулары (мэл) видеолар",
-  "Логопедиялық жаттығу видеолар",
-  "Заттық кеңістік ортаны құрудың негізгі қағидалары",
-];
-
-const methodItemsTop = [
-  "Нұсқалық хаттар",
-  "Еңбек әрекеті кезіндегі қауіпсіздік",
-  "Қауіпсіздікті қамтамасыз ету",
-  "Тәрбиешілердің нұсқалығы",
-  "Балабақша аумағындағы қауіпсіздік",
-  "Музыка ҮЙӘ кезіндегі қауіпсіздік",
-  "Серуен кезіндегі қауіпсіздік",
-  "Тамақтану кезіндегі қауіпсіздік",
-  "Тәрбиешенің білім беру кезіндегі қауіпсіздік",
-  "Шығармашылық кезеңдегі қауіпсіздік",
-];
-
-const methodItemsBottom = [
-  "Педагогикалық әдістемелік кеңестің хаттамалары",
-  "Ата-аналар жиналысының хаттамалары",
-  "Жазғы сауықтыру жоспары",
-  "Семинар / Кеңестер",
-];
-
-function Bullet({ text }: { text: string }) {
-  return (
-    <li className="flex items-start gap-2 text-sm md:text-base text-[#3A2A72]">
-      <span className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#6A47C8] text-[10px] text-white">
-        ✓
-      </span>
-      <span>{text}</span>
-    </li>
-  );
-}
+import { useRouter } from "next/navigation";
 
 export default function Tariffs() {
+  const router = useRouter();
+
+  // Жеке тәрбиеші тарифтері
+  const privatePlanPrice = 30000;
+  const privatePlanMonths = 9;
+
+  // Балабақша тарифтері
+  const kindergartenPlanPrice = 300000;
+
+  const handleSelectPrivatePlan = () => {
+    const totalPrice = privatePlanPrice; // 30 000 ₸
+    router.push(`/checkout?plan=Жеке%20тәрбиеші&price=${totalPrice}`);
+  };
+
+  const handleSelectKindergartenPlan = () => {
+    const totalPrice = kindergartenPlanPrice; // 300 000 ₸
+    router.push(`/checkout?plan=Балабақша&price=${totalPrice}`);
+  };
+
   return (
     <section className="w-full py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#5E40A6] mb-10">
+        <h2 className="text-center text-3xl font-extrabold text-[#5E40A6] mb-10">
           Ustaz Kids платформасының тарифтері
         </h2>
 
         <div className="grid gap-6 md:grid-cols-[1.1fr,2fr]">
           {/* Жеке тәрбиеші */}
-          <div className="bg-white rounded-3xl shadow-lg shadow-black/5 px-6 py-8 md:px-8 md:py-10 flex flex-col justify-between">
+          <div className="bg-white rounded-3xl shadow-lg shadow-black/5 px-6 py-8 flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-bold text-[#3A2A72] mb-1">
                 Жеке тәрбиеші
@@ -78,14 +39,19 @@ export default function Tariffs() {
               <p className="text-sm text-gray-500 mb-4">Жылдық тариф</p>
 
               <ul className="space-y-3">
-                {privateItems.map((item) => (
-                  <Bullet key={item} text={item} />
-                ))}
+                <li>✓ Тоғыз айға перспективалық жоспар</li>
+                <li>✓ Тоғыз айға циклограмма</li>
+                <li>✓ Үйә кестесі</li>
+                <li>✓ Күн тәртібі</li>
+                <li>✓ Жаздық сауықтыру жоспары</li>
               </ul>
             </div>
 
             <div className="mt-8 flex justify-center">
-              <button className="rounded-full bg-[#F5D74B] px-6 py-3 text-sm font-semibold text-[#4B4B4B] hover:bg-[#eccf3e] transition">
+              <button
+                className="rounded-full bg-[#F5D74B] px-6 py-3 text-sm font-semibold text-[#4B4B4B] hover:bg-[#eccf3e] transition"
+                onClick={handleSelectPrivatePlan}
+              >
                 Жоспарды таңдаңыз (30 000 ₸)
               </button>
             </div>
@@ -97,82 +63,64 @@ export default function Tariffs() {
             <p className="text-sm text-white/80 mb-6">Жылдық тариф</p>
 
             <div className="grid gap-6 lg:grid-cols-3">
-              {/* Тәрбиеші құжаттары */}
               <div>
                 <h4 className="text-lg font-semibold mb-3">
                   Тәрбиеші құжаттары:
                 </h4>
                 <ul className="space-y-2">
-                  {docItems.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm md:text-[15px]"
-                    >
-                      <span className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-white/80 text-[10px] text-[#6A47C8]">
-                        ✓
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                  <li>✓ Перспективалық жоспар</li>
+                  <li>✓ Циклограмма</li>
+                  <li>✓ Баланың даму динамикасы</li>
+                  <li>✓ Үйә кестесі Күн тәртібі</li>
+                  <li>✓ Ата-аналармен байланыс құралдары</li>
+                  <li>✓ Ертегілер (әр жас ерекшегі бойынша)</li>
+                  <li>✓ Құндылық іс-шаралары</li>
+                  <li>✓ Педагогтердің жеке дамуына арналған кітаптар</li>
                 </ul>
               </div>
 
-              {/* Видео материалдар */}
               <div>
                 <h4 className="text-lg font-semibold mb-3">Видео материалдар:</h4>
                 <ul className="space-y-2">
-                  {videoItems.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm md:text-[15px]"
-                    >
-                      <span className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-white/80 text-[10px] text-[#6A47C8]">
-                        ✓
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                  <li>✓ Топтың жабдықталуы фотолар</li>
+                  <li>✓ Еркін ойын видеолар</li>
+                  <li>✓ Ойындар видеолар</li>
+                  <li>✓ Ерте даму жаттығулары видеолар</li>
+                  <li>✓ Логопедиялық жаттығу видеолар</li>
+                  <li>✓ Заттық кеңістік ортаны құру</li>
                 </ul>
               </div>
 
-              {/* Әдіскер құжаттары */}
               <div>
-                <h4 className="text-lg font-semibold mb-3">
-                  Әдіскердің құжаттары:
-                </h4>
+                <h4 className="text-lg font-semibold mb-3">Әдіскердің құжаттары:</h4>
                 <ul className="space-y-2 mb-4">
-                  {methodItemsTop.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm md:text-[15px]"
-                    >
-                      <span className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-white/80 text-[10px] text-[#6A47C8]">
-                        ✓
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                  <li>✓ Нұсқалық хаттар</li>
+                  <li>✓ Еңбек әрекеті кезіндегі қауіпсіздік</li>
+                  <li>✓ Қауіпсіздікті қамтамасыз ету</li>
+                  <li>✓ Тәрбиешілердің нұсқалығы</li>
+                  <li>✓ Балабақша аумағындағы қауіпсіздік</li>
+                  <li>✓ Музыка ҮЙӘ кезіндегі қауіпсіздік</li>
+                  <li>✓ Серуен кезіндегі қауіпсіздік</li>
+                  <li>✓ Тамақтану кезіндегі қауіпсіздік</li>
+                  <li>✓ Тәрбиешенің білім беру кезіндегі қауіпсіздік</li>
+                  <li>✓ Шығармашылық кезеңдегі қауіпсіздік</li>
                 </ul>
 
                 <h5 className="text-md font-semibold mb-2">Құжаттар:</h5>
                 <ul className="space-y-2">
-                  {methodItemsBottom.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm md:text-[15px]"
-                    >
-                      <span className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-white/80 text-[10px] text-[#6A47C8]">
-                        ✓
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                  <li>✓ Педагогикалық әдістемелік кеңестің хаттамалары</li>
+                  <li>✓ Ата-аналар жиналысының хаттамалары</li>
+                  <li>✓ Жазғы сауықтыру жоспары</li>
+                  <li>✓ Семинар / Кеңестер</li>
                 </ul>
               </div>
             </div>
 
             <div className="mt-8 flex justify-center">
-              <button className="rounded-full bg-white text-[#6A47C8] px-6 py-3 text-sm font-semibold hover:bg-[#F5F1FF] transition">
+              <button
+                className="rounded-full bg-white text-[#6A47C8] px-6 py-3 text-sm font-semibold hover:bg-[#F5F1FF] transition"
+                onClick={handleSelectKindergartenPlan}
+              >
                 Жоспарды таңдаңыз (300 000 ₸)
               </button>
             </div>
