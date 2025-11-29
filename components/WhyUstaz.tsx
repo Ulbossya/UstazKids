@@ -45,12 +45,12 @@ export default function WhyUstaz() {
   return (
     <section className="relative w-full -mt-px overflow-hidden">
       {/* Фон */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[#6C4AB6]/92" />
+      <div className="absolute inset-0 ">
+        <div className="absolute inset-0 bg-[#6C4AB6]" />
       </div>
 
       {/* Контент */}
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 text-white">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 text-white drop-shadow-lg">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center">
           Неліктен Ustaz Kids?
         </h2>
