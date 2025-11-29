@@ -1,14 +1,13 @@
-import Erekshelikter from "./components/Erekshelikter";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import TarbieshiQuraldar from "./components/TarbieshiQuraldar";
-import WhyUstaz from "./components/WhyUstaz";
-import Team from "./components/Team";
-import Tariffs from "./components/Tariffs";
-import Dashboard from "./components/Dashboard";
+import Erekshelikter from "../components/Erekshelikter";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import TarbieshiQuraldar from "../components/TarbieshiQuraldar";
+import WhyUstaz from "../components/WhyUstaz";
+import Team from "../components/Team";
+import Tariffs from "../components/Tariffs";
 
 export default function Home() {
-  return (
+  return ( 
     <main>
       <Hero />
       <WhyUstaz />
@@ -16,7 +15,6 @@ export default function Home() {
       <Erekshelikter />
       <Team />
       <Tariffs />
-      <Dashboard />
 
     </main>
   );
