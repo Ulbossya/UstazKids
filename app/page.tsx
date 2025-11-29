@@ -5,6 +5,7 @@ import TarbieshiQuraldar from "../components/TarbieshiQuraldar";
 import WhyUstaz from "../components/WhyUstaz";
 import Team from "../components/Team";
 import Tariffs from "../components/Tariffs";
+import Dashboard from "../components/Dashboard";
 
 export default function Home() {
   return ( 
@@ -15,7 +16,7 @@ export default function Home() {
       <Erekshelikter />
       <Team />
       <Tariffs />
-
+      <Dashboard />
     </main>
   );
 }
