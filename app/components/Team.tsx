@@ -9,10 +9,10 @@ type Member = {
 };
 
 const TEAM: Member[] = [
-  { name: "Амангүл Матан", role: "Бас директор",           photo: "/images/team/avatar.png" },
-  { name: "Фариза Кузенбаева", role: "Академиялық директор", photo: "/images/team/avatar.png" },
-  { name: "Гүлнұр Дайрабаева", role: "Методист тренер",       photo: "/images/team/avatar.png" },
-  { name: "Гүлімжан Мырзабекова", role: "Методист тренер",   photo: "/images/team/avatar.png" },
+  { name: "Амангүл Матан", role: "Бас директор",           photo: "/images/team/teacher1.png" },
+  { name: "Фариза Кузенбаева", role: "Академиялық директор", photo: "/images/team/teacher2.png" },
+  { name: "Гүлнұр Дайрабаева", role: "Методист тренер",       photo: "/images/team/teacher3.png" },
+  { name: "Гүлімжан Мырзабекова", role: "Методист тренер",   photo: "/images/team/teacher4.png" },
 ];
 
 export default function Team() {
