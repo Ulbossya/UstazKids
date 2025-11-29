@@ -32,16 +32,16 @@ export default function Footer() {
             <div className="md:col-span-12 mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               {/* Телефон */}
               <div className="flex items-center gap-3 text-[18px] font-semibold">
-                <PhoneIcon className="h-6 w-6" />
-                <a href="tel:+77777777777" className="hover:opacity-90">
+                <PhoneIcon className="h-6 w-6 text-white" />
+                <a href="tel:+77777777777" className="text-white hover:opacity-90">
                   +7 (777) 777-77-77
                 </a>
               </div>
 
               {/* Адрес */}
               <div className="flex items-center gap-3 text-[18px] font-semibold">
-                <PinIcon className="h-6 w-6" />
-                <span>г. Нұр-Сұлтан, ул. Қошқарбаева 11/2</span>
+                <PinIcon className="h-6 w-6 text-white" />
+                <span className="text-white">г. Нұр-Сұлтан, ул. Қошқарбаева 11/2</span>
               </div>
 
               {/* Әлеуметтік желілер */}
@@ -49,25 +49,25 @@ export default function Footer() {
                 <Link
                   href="mailto:hello@ukids.kz"
                   aria-label="Email"
-                  className="hover:opacity-90"
+                  className="text-white hover:opacity-90"
                 >
-                  <MailIcon className="h-6 w-6" />
+                  <MailIcon className="h-6 w-6 text-white" />
                 </Link>
                 <Link
                   href="https://instagram.com"
                   target="_blank"
                   aria-label="Instagram"
-                  className="hover:opacity-90"
+                  className="text-white hover:opacity-90"
                 >
-                  <InstagramIcon className="h-6 w-6" />
+                  <InstagramIcon className="h-6 w-6 text-white" />
                 </Link>
                 <Link
                   href="https://wa.me/77777777777"
                   target="_blank"
                   aria-label="WhatsApp"
-                  className="hover:opacity-90"
+                  className="text-white hover:opacity-90"
                 >
-                  <WhatsappIcon className="h-6 w-6" />
+                  <WhatsappIcon className="h-6 w-6 text-white" />
                 </Link>
               </div>
             </div>
@@ -76,10 +76,13 @@ export default function Footer() {
 
         {/* Төменгі қараңғы жолақ */}
         <div className="bg-[#513991]">
-          <div className="mx-auto max-w-6xl px-6 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-white/90 text-[14px]">
+          <div className="mx-auto max-w-6xl px-6 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-white text-[14px]">
             <p>© BIF IT ДЕПАРТАМЕНТімен әзірленген — Астана қаласында сайт жасау</p>
 
-            <Link href="/privacy" className="underline decoration-white/50 hover:decoration-white">
+            <Link
+              href="/privacy"
+              className="text-white underline decoration-white/50 hover:decoration-white"
+            >
               Құпиялық саясаты
             </Link>
           </div>

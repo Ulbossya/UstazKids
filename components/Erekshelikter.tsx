@@ -17,9 +17,11 @@ export default function UstazKidsErekshelikteri() {
   ];
 
   const carouselImages = [
-    "/images/image.png",
-    "/images/image.png",
-    "/images/image.png",
+   "/images/image4.jpeg",
+    "/images/image2.jpeg",
+    "/images/image3.jpeg",
+    "/images/image4.jpeg",
+
   ];
 
   return (
@@ -75,18 +77,25 @@ export default function UstazKidsErekshelikteri() {
       </div>
 
       {/* Иконки / ерекшеліктер */}
-      <div className="flex justify-around mt-12 border-t border-gray-200 pt-6">
-        {features.map((feature, i) => {
-          const Icon = feature.icon;
-          return (
-            <div key={i} className="flex flex-col items-center">
-              <div className="w-16 h-16 mb-2 flex items-center justify-center bg-[#674DA2] rounded-full">
-                <Icon className="w-8 h-8 text-white" />
-              </div>
-            </div>
-          );
-        })}
+     <div className="flex justify-around mt-12 border-t border-gray-200 pt-6">
+  {features.map((feature, i) => {
+    const Icon = feature.icon;
+    return (
+      <div key={i} className="flex items-center">
+        {/* Иконка */}
+        <div className="w-16 h-16 mb-2 flex items-center justify-center bg-[#674DA2] rounded-full">
+          <Icon className="w-8 h-8 text-white" />
+        </div>
+
+        {/* Divider - соңғы элементке қоспау */}
+        {i !== features.length - 1 && (
+          <div className="w-px h-12 bg-gray-300 mx-6"></div>
+        )}
       </div>
+    );
+  })}
+</div>
+
     </section>
   );
 }

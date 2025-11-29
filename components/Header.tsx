@@ -5,8 +5,10 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
+
+  // Сілтемелер стилі
   const linkStyle =
-    "text-[15px] font-semibold text-[#5E40A6] hover:text-[#7B59D3] transition";
+    "text-[15px] font-semibold text-[#674DA2] hover:text-[#7B59D3] transition";
   const activeStyle = "text-purple-700";
 
   return (
@@ -14,6 +16,7 @@ export default function Header() {
       <div className="flex items-center gap-3">
         <img src="/logo.png" alt="Logo" className="h-8" />
       </div>
+
       <nav className="flex items-center gap-10">
         <Link
           href="/"
@@ -21,18 +24,25 @@ export default function Header() {
         >
           БАСТЫ БЕТ
         </Link>
+
         <Link
           href="/tarbieshi"
-          className={`${linkStyle} ${pathname.startsWith("/tarbieshi") ? activeStyle : ""}`}
+          className={`${linkStyle} ${
+            pathname.startsWith("/tarbieshi") ? activeStyle : ""
+          }`}
         >
           ТӘРБИЕШІ БӨЛІМІ
         </Link>
+
         <Link
           href="/adisker"
-          className={`${linkStyle} ${pathname.startsWith("/adisker") ? activeStyle : ""}`}
+          className={`${linkStyle} ${
+            pathname.startsWith("/adisker") ? activeStyle : ""
+          }`}
         >
           ӘДІСКЕР БӨЛІМІ
         </Link>
+
         <Link
           href="/login"
           className="bg-[#F5D74B] px-6 py-2 rounded-full font-bold text-[#4b4b4b] hover:bg-[#f0cf3f] transition"
