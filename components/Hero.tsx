@@ -5,7 +5,7 @@ export default function Hero() {
 <section className="relative w-full h-[80vh] flex items-center overflow-hidden">
       <img
         src="/images/bala.png"
-        className="absolute inset-0 w-full h-full object-cover brightness-75"
+        className="absolute inset-0 w-full h-full object-cover brightness-90"
         alt="Hero background"
       />
       <div className="relative z-10 text-white max-w-2xl px-10">
