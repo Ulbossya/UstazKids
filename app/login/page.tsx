@@ -10,7 +10,9 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const applications = JSON.parse(localStorage.getItem("applications") || "[]");
+    const applications = JSON.parse(
+      localStorage.getItem("applications") || "[]"
+    );
 
     const user = applications.find(
       (app: any) => app.email === email && app.password === password
@@ -18,11 +20,14 @@ export default function LoginPage() {
 
     if (user) {
       alert(`Қош келдіңіз, ${user.fullName}! Рөліңіз: ${user.role}`);
-      
+
+      // ✅ currentUser-ды сақтаймыз
+      localStorage.setItem("currentUser", JSON.stringify(user));
+
       // Role-based redirect
-      switch(user.role) {
+      switch (user.role) {
         case "ата-ана":
-          router.push("/parent"); 
+          router.push("/parent");
           break;
         case "тәрбиеші":
           router.push("/tarbieshi");
@@ -47,25 +52,26 @@ export default function LoginPage() {
         <h1 className="text-3xl font-bold text-center text-purple-700 mb-6">
           Қош келдіңіз!
         </h1>
+
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-gray-700 mb-2">Email</label>
+            <label className="block text-sm font-semibold mb-1">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-purple-400 outline-none"
+              className="text-sm w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-purple-400 outline-none"
               placeholder="user@example.com"
               required
             />
           </div>
           <div>
-            <label className="block text-gray-700 mb-2">Құпия сөз</label>
+            <label className="block text-sm font-semibold mb-1">Құпия сөз</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-purple-400 outline-none"
+              className="text-sm w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-purple-400 outline-none"
               placeholder="********"
               required
             />
@@ -77,6 +83,18 @@ export default function LoginPage() {
             Кіру
           </button>
         </form>
+
+        {/* 🔹 Блок "аккаунт жоқ па?" */}
+        <div className="mt-4 text-center text-sm text-gray-600">
+          Аккаунтыңыз жоқ па?{" "}
+          <button
+            type="button"
+            onClick={() => router.push("/register")}
+            className="text-purple-600 font-semibold hover:underline"
+          >
+            Тіркелу
+          </button>
+        </div>
       </div>
     </div>
   );

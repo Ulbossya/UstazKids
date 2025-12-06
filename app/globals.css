@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* =========================
+   HERO SECTION STYLES
+   ========================= */
+@layer components {
+  .hero-section {
+    @apply relative w-full h-[80vh] flex items-center overflow-hidden;
+  }
+
+  .hero-bg {
+    @apply absolute inset-0 w-full h-full object-cover brightness-90;
+  }
+
+  .hero-content {
+    @apply relative z-10 text-white max-w-2xl px-10;
+  }
+
+  .hero-title {
+    @apply text-4xl md:text-5xl font-extrabold leading-tight mb-4;
+  }
+
+  .hero-subtitle {
+    @apply text-lg md:text-xl mb-4;
+  }
+
+  .hero-text {
+    @apply text-base md:text-lg opacity-90;
+  }
+
+  .hero-wave {
+    @apply absolute bottom-0 left-0 right-0 w-full h-[110px];
+  }
+}
